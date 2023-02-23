@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(37, 36, 36);
+}
+h1 {
+    color: aliceblue;
+}
+
+ul {
+    color: aliceblue;
+    font-size: 19px;
+}
+.van {
+ color: rgb(58, 58, 228);
+}
+
+.des {
+    color: rgb(202, 60, 60);
+}
+.tx{
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    text-align: justify;
+    word-break: break-all;
+}
+.div {
+    width: 1250px;
+    border: solid;
+    border-block-color: rgb(255, 255, 255);
+}
