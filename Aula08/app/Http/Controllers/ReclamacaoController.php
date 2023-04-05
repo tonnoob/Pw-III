@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contato;
+use App\Reclamacao;
 
 class ReclamacaoController extends Controller
 {
@@ -14,7 +15,8 @@ class ReclamacaoController extends Controller
      */
     public function index()
     {
-        
+        $reclamacoes= Reclamacao::all();
+        return view('reclamacao',compact('reclamacoes'));
     }
 
     /**
@@ -37,12 +39,13 @@ class ReclamacaoController extends Controller
     {
         $reclamacao = new Reclamacao();
         
+        $reclamacao -> idLab = $request -> idlab;
         $reclamacao ->pc = $request->txPc;        
         $reclamacao ->titulo = $request->txTitulo;
         $reclamacao ->descricao = $request->txDescricao;
         $reclamacao ->dtCriacao = $request->txDtCriacao;
 
-        $contato->save();
+        $reclamacao->save();
 
         return redirect('/reclamacao');
     }

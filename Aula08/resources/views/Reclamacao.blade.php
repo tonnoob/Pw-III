@@ -17,13 +17,13 @@
         <input type="submit" value="Salvar" />
     </form>
 
-    @foreach($contatos as $c)        
+    @foreach($reclamacoes as $r)        
         <p>
-        {{$c->idRec}}
-        {{$c->pc}}
-        {{$c->titulo}}
-        {{$c->descricao}}
-        {{$c->dtCriacao}}
+        {{$r->idRec}}
+        {{$r->pc}}
+        {{$r->titulo}}
+        {{$r->descricao}}
+        {{$r->dtCriacao}}
         <a href="/reclamacao/excluir/{{$c->idRec}}"> Excluir </a>
         </p>
     @endforeach
