@@ -91,4 +91,24 @@ class LaboratorioController extends Controller
         $laboratorio->where('idLab','=',$idLab)->delete();
         return redirect('/laboratorio');
     }
+
+    public function reclamacaoLista()
+    {
+        $reclamacoes = Reclamacao::all();
+        //$contatos = Contato::where('email','=','maria@gmail.com')->get();
+        
+        return view('reclamacao',compact('reclamacoes'));
+
+        /*
+        foreach($contatos as $c){
+            echo $c->nome;
+        }
+        */
+    }
+
+
+    public function allReclamacoes(){
+        $reclamacoes = Reclamacao::all();      
+        return $reclamacoes;
+    }
 }

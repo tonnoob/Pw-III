@@ -36,5 +36,12 @@
         </p>
     @endforeach
 
+    <select name="selContato">
+    @foreach($reclamacoes as $r)
+    <option value="{{$r->idRec}}"> {{$r->pc}}  </option>    
+    @endforeach
+    </select>
+
+
 </body>
 </html>
