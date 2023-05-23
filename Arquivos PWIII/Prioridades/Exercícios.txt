@@ -1,0 +1,12 @@
+1 - Criar uma API utilizando get para:
+Contatos
+Laboratório
+Reclamação
+
+2 - Criar uma view que utilize um formulário com a API VIACEP
+
+3 - Utilize na View de Reclamação do projeto um <select> que exiba o nome dos laboratórios invés do usuário digitar o código do laboratório
+
+
+Observe: não se esqueça da formatação com CSS do projeto 
+

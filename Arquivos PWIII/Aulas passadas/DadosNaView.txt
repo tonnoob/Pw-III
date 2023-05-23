@@ -1,0 +1,49 @@
+Web.php
+Route::get('/laboratorio','LaboratorioController@index');
+
+Controller
+$laboratorios = Laboratorio::all();
+return view('laboratorio',compact('laboratorios')); 
+
+View
+@foreach($laboratorios as $lab)
+        <p> {{$lab->idLab}} {{$lab->lab}} </p>
+    @endforeach
+
+fazer todas as consultas de todas as tabelas do projeto 
+fazer a exibição dos tados usando uma tabela formatada (com ou sem bootstrap) com view 
+
+------------------------------------------------------------------------------
+
+Controlller 
+
+use App\Laboratorio;
+
+//dentro do public function 
+ $laboratorios = Laboratorio::all();
+        return view('laboratorio',compact('laboratorios'));
+
+------------------------------------------------------------------------------
+
+laboratorio.blade.php
+
+@foreach($laboratorios as $lab)
+        <p> {{$lab->idLab}} {{$lab->lab}} </p>
+        @endforeach
+
+--------------------------------------------------------------------------------
+
+web.php
+
+Route::get('/laboratorio','LaboratorioController@index');
+
+--------------------------------------------------------------------------------
+
+model: Laboratorio.php
+
+//dentro da classe 
+protected $table="tbLaboratorio";
+
+--------------------------------------------------------------------------------
+
+

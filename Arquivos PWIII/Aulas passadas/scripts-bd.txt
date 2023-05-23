@@ -1,0 +1,67 @@
+create database  bdPw3;
+
+create table tbContato(
+	idContato int PRIMARY key AUTO_INCREMENT,
+    nome varchar(40),
+    email varchar(40),
+    assunto varchar(40),
+    mensagem varchar(5000)
+);
+
+insert into tbContato values(null,'Thiago','thiago@gmail.com','Greve','greve mas tem aula');
+insert into tbContato values(null,'Maria','maria@gmail.com','Greve2','greve mas tem aula2');
+insert into tbContato values(null,'Ana','ana@gmail.com','Greve3','greve mas tem aula3');
+
+create table tbLaboratorio(
+	idLab int PRIMARY key AUTO_INCREMENT,
+    laboratorio varchar(40)
+);
+
+insert into tbLaboratorio values(null,'Lab 1');
+insert into tbLaboratorio values(null,'Lab 2');
+insert into tbLaboratorio values(null,'Lab 3');
+insert into tbLaboratorio values(null,'Lab 4');
+
+
+create table tbReclamacao(
+	idReclam int primary key auto_increment,
+	titReclam varchar(2000),
+	pc varchar(40),
+	descricao varchar(40),	
+	idLab int,
+	dtCriacao date,
+	foreign key (idLab) references tbLaboratorio(idLab)	
+);
+
+insert into tbreclamacao values(null, 'instalar laravel','pc5','sem a ferramenta', 1, '2023-05-11');
+insert into tbreclamacao values(null, 'instalar laravel','pc15','sem a ferramenta', 2, '2023-05-11');
+insert into tbreclamacao values(null, 'instalar laravel','pc10','sem a ferramenta', 1, '2023-05-11');
+
+
+select tbreclamacao.titReclam,tblaboratorio.laboratorio,tbreclamacao.idLab from tbreclamacao
+inner join tblaboratorio ON
+tbreclamacao.idLab = tblaboratorio.idLab
+
+
+select r.titReclam,l.laboratorio,r.idLab from tbreclamacao r
+inner join tblaboratorio l ON
+r.idLab = l.idLab
+
+select r.titReclam,l.laboratorio,r.idLab from tbreclamacao r
+left join tblaboratorio l ON
+r.idLab = l.idLab
+
+select r.titReclam,l.laboratorio,r.idLab from tbreclamacao r
+RIGHT join tblaboratorio l ON
+r.idLab = l.idLab
+
+
+
+
+
+
+
+
+
+
+

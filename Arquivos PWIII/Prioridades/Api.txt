@@ -1,0 +1,46 @@
+
+Arquivo api.php
+Route::get('/contato','ContatoController@allContacts');
+
+
+Em uma view
+<select name="selContato">
+    @foreach($contatos as $c)
+    <option value="{{$c->idContato}}"> {{$c->nome}}  </option>    
+    @endforeach
+</select>
+
+
+No controller
+
+ public function contatoLista()
+    {
+        $contatos = Contato::all();
+        //$contatos = Contato::where('email','=','maria@gmail.com')->get();
+        
+        return view('exemplo',compact('contatos'));
+
+        /*
+        foreach($contatos as $c){
+            echo $c->nome;
+        }
+        */
+    }
+
+
+    public function allContacts(){
+        $contatos = Contato::all();      
+        return $contatos;
+    }
+
+
+
+Link API
+https://aws.amazon.com/pt/what-is/api/#:~:text=API%20significa%20Application%20Programming%20Interface,de%20servi%C3%A7o%20entre%20duas%20aplica%C3%A7%C3%B5es.
+https://viacep.com.br/
+https://viacep.com.br/ws/01042000/json/
+
+
+
+
+

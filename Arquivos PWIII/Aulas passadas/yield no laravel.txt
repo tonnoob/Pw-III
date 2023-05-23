@@ -1,0 +1,13 @@
+Aula 04/05/2023
+
+dentro da view criar um pastas chamada components,
+criar um arquivo dentro da pasta componente chamado layout.blade.php
+criar um layout completo nesse arquibo "layout" e utilizar o @yield('content')
+Agora na view que voce quer utilizar o layout como o Welcome.blade.php colocar o 
+
+@extends('components.layout)
+@section('content')
+
+	todo o conteudo 
+
+@endsection

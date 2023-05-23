@@ -1,0 +1,135 @@
+create database dbpw3;
+use dbpw3;
+CREATE TABLE tbLaboratorio (
+    idLaboratorio INT PRIMARY KEY AUTO_INCREMENT,
+    Laboratorio varchar(250)
+);
+
+CREATE TABLE tbReclamacao (
+    idRec int PRIMARY KEY AUTO_INCREMENT,
+	idLaboratorio INT,
+    pc varchar(250),
+    titulo varchar(250),
+    descricao varchar(250),
+    dtCriacao date,
+    FOREIGN KEY (idLaboratorio) REFERENCES tbLaboratorio(idLaboratorio)
+);
+
+create table tbContato (
+	idContato int AUTO_INCREMENT primary key,
+	dtCriacao date,
+	nome varchar(250),
+	email varchar(250),
+	assunto varchar(250),
+	mensagem varchar(250) 
+);
+
+insert into tbReclamacao (idLaboratorio, pc, titulo, descricao, dtCriacao) values 
+(1, 04, 'quebrou o cabo', 'cabo de internet esta sem fio', 20230511);
+
+insert into tbContato (dtCriacao, nome, email, assunto, mensagem) values 
+(20230511, 'cleito', 'cleito@gmail.com', 'pc ta ruim', 'mensagem que o pc ta ruim');
+
+INSERT INTO tbLaboratorio (Laboratorio) VALUES 
+	('Laboratorio 1'), 
+	('Laboratorio 2'), 
+	('Laboratorio 3'), 
+	('Laboratorio 4');
+---------------------------------------------------------------------------------
+Alterar arquivo Env. 
+
+DB_DATABASE=(nome do banco de dados)
+DB_USERNAME=(root)
+DB_PASSWORD=(sem nada)
+-----------------------------------------------------------------------------------
+caso ja tenha um projeto pronto e importe ele, criar uma nova key pelo cmd
+php artisan key:generate
+--------------------------------------------------------------------------------------
+No model: 
+
+class Teste extends Model
+{
+    //colocar o nome da tabela do banco
+    protected $table = "tbTeste";
+
+    //campos da minha tabela
+    protected $fillable = ['idTeste','nomeTeste','emailTeste','assuntoTeste','mensagemTeste'];
+
+    public $timestamps=false;
+
+}
+
+-----------------------------------------------------------------------------------------
+No Controller:
+
+use App\Teste; //nome do model
+--------------------------------------------------------------------
+public function index()
+    {
+        $testes = Teste::all();
+        return view('Teste', compact('testes'));
+    }
+---------------------------------------------------------------------
+ public function store(Request $request)
+    {
+        $teste = new Teste();
+        $teste -> nomeTeste = $request ->txnomeTeste;
+        $teste -> emailTeste = $request -> txemailTeste;
+        $teste -> assuntoTeste = $request -> txassuntoTeste;
+        $teste -> mensagemTeste = $request -> txmensagemTeste;
+
+        $teste -> save();
+
+        return redirect('/teste');
+    }
+---------------------------------------------------------------------
+    public function destroy($idTeste)
+    {
+        $contato = new Contato();
+        $contato->where('idContato','=',$idContato)->delete();
+        return redirect('/contato');
+    }
+------------------------------------------------------------------------------
+No view:
+
+    <ul>
+        <li><a href="/">Principal</a></li>
+        <li><a href="/quemsomos">Quem Somos</a></li>
+        <li><a href="/reclamacao">Reclamacao</a></li>
+        <li><a href="/laboratorio">Laboratorios</a></li>
+    </ul>
+    
+<form action="/teste" method="post">        
+        {{csrf_field()}}        
+        <input type="text" name="txnomeTeste" placeholder="Nome"/>
+        <input type="text" name="txmailTeste" placeholder="E-mail" />
+        <input type="text" name="txassuntoTeste" placeholder="Assunto" />
+        <input type="text" name="txmensagemTeste" placeholder="Mensagem" />
+        <input type="submit" value="Salvar" />
+    </form>
+
+    @foreach($testes as $t)        
+        <p>
+        {{$t->idTeste}}
+        {{$t->nomeTeste}}
+        {{$t->emailTeste}}
+        {{$t->assuntoTeste}}
+        {{$t->mensagemTeste}}
+        <a href="/teste/excluir/{{$t->idTeste}}"> Excluir </a>
+        </p>
+    @endforeach
+---------------------------------------------------------------------------------
+ Em routes, web.php:
+
+Route::get('/', function () {
+    return view('principal');
+});
+
+Route::get('/quemsomos', function () {
+    return view('quem-somos');
+});
+
+Route::get('/teste','testeController@index');
+Route::post('/teste','testeController@store');
+Route::get('/teste/excluir/{idTeste}','TesteController@destroy');
+---------------------------------------------------------------------------------
