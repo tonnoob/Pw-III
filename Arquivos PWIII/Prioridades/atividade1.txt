@@ -7,6 +7,6 @@ Página principal OK
 Página de Laboratórios OK
 Página de Reclamação OK 
 URL de API para inserção, consulta e exclusão OK
-Página com a utilização da página de CEP
+Página com a utilização da página de CEP OK
 Página com um gráfico (pode ser estático)
 Rotinas de consulta, inserção e exclusão para as tabelas de laboratório e reclamação

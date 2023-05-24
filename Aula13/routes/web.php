@@ -31,4 +31,7 @@ Route::get('/reclamacao','ReclamacaoController@index');
 Route::post('/reclamacao','ReclamacaoController@store');
 Route::get('/reclamacao/excluir/{idRec}','ReclamacaoController@destroy');
 
+Route::get('/viacep', function () {
+    return view('viacep');
+});
 

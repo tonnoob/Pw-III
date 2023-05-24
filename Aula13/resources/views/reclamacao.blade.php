@@ -10,7 +10,11 @@
         <option value="{{$l->idLaboratorio}}"> {{$l->Laboratorio}}  </option>    
         @endforeach    
         </select>  
-        <input type="text" name="txPc" placeholder="Pc"/>
+        <select name="idPc">
+        @foreach($pcs as $p)
+        <option value="{{$p->idPc}}"> {{$p->Pc}}  </option>    
+        @endforeach    
+        </select>  
         <input type="text" name="txTitulo" placeholder="Título" />
         <input type="text" name="txDescricao" placeholder="Descrição" />
         <input type="text" name="txDtCriacao" placeholder="Data de Criação" />
@@ -21,7 +25,7 @@
         <p>
         {{$r->idRec}}
         {{$r->idLaboratorio}}
-        {{$r->pc}}
+        {{$r->idPc}}
         {{$r->titulo}}
         {{$r->descricao}}
         {{$r->dtCriacao}}
