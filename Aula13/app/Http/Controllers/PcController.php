@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Pc;
 
 class PcController extends Controller
 {
@@ -13,7 +13,8 @@ class PcController extends Controller
      */
     public function index()
     {
-        //
+        $pcs = Pc::all();
+        return view('pc', compact('pcs'));
     }
 
     /**
@@ -34,7 +35,13 @@ class PcController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pc= new Pc();
+        $pc -> idPc = $request -> txidPc;
+        $pc -> Pc = $request -> txPc;
+
+        $pc -> save();
+
+        return redirect('/pc');
     }
 
     /**
@@ -77,8 +84,22 @@ class PcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idPc)
     {
-        //
+        $pc = new Pc();
+        $pc->where('idPc','=',$idPc)->delete();
+        return redirect('/pc');
+    }
+
+    public function PcLista()
+    {
+        $pcs = Pc::all();
+        
+        return view('pc',compact('pcs'));
+    }
+
+    public function allPcs(){
+        $pcs = Pc::all();      
+        return $pcs;
     }
 }

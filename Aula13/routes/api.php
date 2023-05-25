@@ -22,3 +22,5 @@ Route::get('/contato','ContatoController@allContacts');
 Route::get('/reclamacao','ReclamacaoController@allClaims');
 
 Route::get('/laboratorio','LaboratorioController@allLaboratories');
+
+Route::get('/pc','PcController@allPcs');

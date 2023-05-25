@@ -12,6 +12,7 @@
         <li><a href="/reclamacao">Reclamacao</a></li>
         <li><a href="/contato">Contatos</a></li>
         <li><a href="/laboratorio">Laboratorios</a></li>
+        <li><a href="/pc">Pcs</a></li>
         <li><a href="/viacep">Buscar CEP</a></li>
     </ul>
 

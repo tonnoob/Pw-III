@@ -7,7 +7,7 @@ CREATE TABLE tbLaboratorio (
 
 create table tbPc (
 	idPc int PRIMARY KEY AUTO_INCREMENT,
-	pc varchar(6)
+	Pc varchar(6)
 );
 
 CREATE TABLE tbReclamacao (
@@ -43,7 +43,7 @@ INSERT INTO tbLaboratorio (Laboratorio) VALUES
 	('Laboratorio 4');
 
 INSERT INTO tbPc (pc) VALUES 
-	('PC 01'), 
-	('PC 02'), 
-	('PC 03'), 
-	('PC 04');
+	('Pc 01'), 
+	('Pc 02'), 
+	('Pc 03'), 
+	('Pc 04');

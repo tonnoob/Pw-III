@@ -99,7 +99,6 @@ class LaboratorioController extends Controller
         return view('laboratorio',compact('laboratorios'));
     }
 
-
     public function allLaboratories(){
         $laboratorios = Laboratorio::all();      
         return $laboratorios;

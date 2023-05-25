@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Reclamacao;
 use App\Laboratorio;
+use App\Pc;
 
 class ReclamacaoController extends Controller
 {
@@ -16,10 +17,10 @@ class ReclamacaoController extends Controller
     public function index()
     {
         $reclamacoes = Reclamacao::all();
-
         $laboratorios = Laboratorio::all();
+        $pcs = Pc::all();
 
-        return view('Reclamacao', compact('reclamacoes','laboratorios'));
+        return view('Reclamacao', compact('reclamacoes','laboratorios', 'pcs'));
     }
 
     /**
@@ -41,7 +42,7 @@ class ReclamacaoController extends Controller
     public function store(Request $request)
     {
         $reclamacao = new Reclamacao();
-        $reclamacao-> pc= $request ->txPc;
+        $reclamacao -> idPc = $request -> idPc;
         $reclamacao -> titulo = $request -> txTitulo;
         $reclamacao -> descricao = $request -> txDescricao;
         $reclamacao -> dtCriacao = $request -> txDtCriacao;
