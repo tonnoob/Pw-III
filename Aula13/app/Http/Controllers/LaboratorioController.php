@@ -18,6 +18,11 @@ class LaboratorioController extends Controller
         return view('laboratorio',compact('laboratorios'));
     }
 
+    public static function totaldeLaboratorios(){
+        $laboratorios = Laboratorio::all()->count();
+        return $laboratorios;
+    }   
+
     /**
      * Show the form for creating a new resource.
      *

@@ -17,6 +17,11 @@ class PcController extends Controller
         return view('pc', compact('pcs'));
     }
 
+    public static function totaldePcs(){
+        $pcs = Pc::all()->count();
+        return $pcs;
+    }   
+
     /**
      * Show the form for creating a new resource.
      *

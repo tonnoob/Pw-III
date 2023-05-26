@@ -1,7 +1,7 @@
 @extends('components.layout')
 
 @section('conteudo')
-<link rel="stylesheet" href="{{url('css/style.css')}}">
+<link rel="stylesheet" href="{{url('css/styled_ctt.css')}}">
 <h1>Contato</h1>
 
 <form action="/contato" method="post">        

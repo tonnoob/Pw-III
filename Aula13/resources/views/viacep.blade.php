@@ -1,6 +1,7 @@
 @extends('components.layout')
 
 @section('conteudo')
+    <link rel="stylesheet" href="{{url('css/styled_cep.css')}}">
     <title>ViaCEP Webservice</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 

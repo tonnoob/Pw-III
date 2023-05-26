@@ -19,9 +19,15 @@ class ReclamacaoController extends Controller
         $reclamacoes = Reclamacao::all();
         $laboratorios = Laboratorio::all();
         $pcs = Pc::all();
-
+        
+        $reclamacao = Reclamacao::orderBy('dtCriacao', 'ASC')->get();
         return view('Reclamacao', compact('reclamacoes','laboratorios', 'pcs'));
     }
+
+    public static function allClaims(){
+        $reclamacoes = Reclamacao::all()->count();
+        return $reclamacoes;
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -106,11 +112,4 @@ class ReclamacaoController extends Controller
    
         return view('reclamacao',compact('reclamacoes'));
     }
-
-    public function allClaims(){
-        $reclamacoes = Reclamacao::all();      
-        return $reclamacoes;
-    }
-
-
 }

@@ -39,3 +39,7 @@ Route::get('/viacep', function () {
     return view('viacep');
 });
 
+Route::get('/grafico', function () {
+    return view('grafico');
+});
+

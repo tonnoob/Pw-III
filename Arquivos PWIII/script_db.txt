@@ -42,7 +42,7 @@ INSERT INTO tbLaboratorio (Laboratorio) VALUES
 	('Laboratorio 3'), 
 	('Laboratorio 4');
 
-INSERT INTO tbPc (pc) VALUES 
+INSERT INTO tbPc (Pc) VALUES 
 	('Pc 01'), 
 	('Pc 02'), 
 	('Pc 03'), 
