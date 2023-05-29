@@ -1,0 +1,50 @@
+create database dbpw3;
+use dbpw3;
+CREATE TABLE tbLaboratorio (
+    idLaboratorio INT PRIMARY KEY AUTO_INCREMENT,
+    Laboratorio varchar(250)
+);
+
+create table tbPc (
+	idPc int PRIMARY KEY AUTO_INCREMENT,
+	Pc varchar(6)
+);
+
+CREATE TABLE tbReclamacao (
+    idRec int PRIMARY KEY AUTO_INCREMENT,
+	idLaboratorio INT,
+	idPc INT,
+    titulo varchar(250),
+    descricao varchar(250),
+    dtCriacao date,
+    FOREIGN KEY (`idLaboratorio`) REFERENCES `tblaboratorio` (`idLaboratorio`),
+	FOREIGN KEY (idPc) REFERENCES tbPc(idPc)
+);
+
+create table tbContato (
+	idContato int AUTO_INCREMENT primary key,
+	dtCriacao date,
+	nome varchar(250),
+	email varchar(250),
+	assunto varchar(250),
+	mensagem varchar(250) 
+);
+
+
+insert into tbContato (dtCriacao, nome, email, assunto, mensagem) 
+values (20230511, 'cleito', 'cleito@gmail.com', 'pc ta ruim', 'mensagem que o pc ta ruim');
+
+INSERT INTO tbLaboratorio (Laboratorio) VALUES 
+	('Laboratorio 1'), 
+	('Laboratorio 2'), 
+	('Laboratorio 3'), 
+	('Laboratorio 4');
+
+INSERT INTO tbPc (Pc) VALUES 
+	('Pc 01'), 
+	('Pc 02'), 
+	('Pc 03'), 
+	('Pc 04');
+
+insert into tbReclamacao (idLaboratorio, idPc, titulo, descricao, dtCriacao) values 
+(1, 4, 'quebrou o cabo', 'cabo de internet esta sem fio', '2002-02-23');
