@@ -17,8 +17,8 @@ CREATE TABLE tbReclamacao (
     titulo varchar(250),
     descricao varchar(250),
     dtCriacao date,
-    FOREIGN KEY (idLaboratorio) REFERENCES tbLaboratorio(idLaboratorio),
-	 FOREIGN KEY (idPc) REFERENCES tbPc(idPc)
+    FOREIGN KEY (`idLaboratorio`) REFERENCES `tblaboratorio` (`idLaboratorio`),
+	FOREIGN KEY (idPc) REFERENCES tbPc(idPc)
 );
 
 create table tbContato (
@@ -30,11 +30,9 @@ create table tbContato (
 	mensagem varchar(250) 
 );
 
-insert into tbReclamacao (idLaboratorio, idPc, titulo, descricao, dtCriacao) values 
-(1, 04, 'quebrou o cabo', 'cabo de internet esta sem fio', 20230511);
 
-insert into tbContato (dtCriacao, nome, email, assunto, mensagem) values 
-(20230511, 'cleito', 'cleito@gmail.com', 'pc ta ruim', 'mensagem que o pc ta ruim');
+insert into tbContato (dtCriacao, nome, email, assunto, mensagem) 
+values (20230511, 'cleito', 'cleito@gmail.com', 'pc ta ruim', 'mensagem que o pc ta ruim');
 
 INSERT INTO tbLaboratorio (Laboratorio) VALUES 
 	('Laboratorio 1'), 
@@ -47,3 +45,6 @@ INSERT INTO tbPc (Pc) VALUES
 	('Pc 02'), 
 	('Pc 03'), 
 	('Pc 04');
+
+insert into tbReclamacao (idLaboratorio, idPc, titulo, descricao, dtCriacao) values 
+(1, 4, 'quebrou o cabo', 'cabo de internet esta sem fio', '2002-02-23');
