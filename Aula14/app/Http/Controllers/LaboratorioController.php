@@ -67,10 +67,12 @@ class LaboratorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($idLaboratorio)
+    {   
+        $laboratorio = Laboratorio::where('idLaboratorio','=',$idLaboratorio)->first();        
+        return view('edit.editar-laboratorio',compact('laboratorio'));        
     }
+
 
     /**
      * Update the specified resource in storage.

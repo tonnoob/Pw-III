@@ -9,7 +9,7 @@ class Laboratorio extends Model
     protected $table="tbLaboratorio";
 
     //campos da minha tabela
-    protected $fillable = ['idLab','Lab'];
+    protected $fillable = ['idLaboratorio','Laboratorio'];
 
     public $timestamps=false;
 }

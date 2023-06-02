@@ -41,7 +41,7 @@
                     <td class="text-center">{{$c->assunto}}</td>
                     <td class="text-center">{{$c->mensagem}}</td>
                     <td class="text-center"><a href="/contato/excluir/{{$c->idContato}}"> Excluir </a></td>
-                    <td class="text-center"><a href=""> Editar </a></td>
+                    <td class="text-center"><a href="/contato/editar/{{$c->idContato}}"> Editar </a></td>
                 </tr>
             @endforeach
             </tbody>

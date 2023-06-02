@@ -39,7 +39,7 @@
                     <td class="text-center">{{$p->idPc}}</td>
                     <td class="text-center">{{$p->Pc}}</td>
                     <td class="text-center"><a href="/pc/excluir/{{$p->idPc}}"> Excluir </a></td>
-                    <td class="text-center"><a href=""> Editar </a></td>
+                    <td class="text-center"><a href="/pc/editar/{{$p->idPc}}"> Editar </a></td>
                 </tr>
             @endforeach
             </tbody>

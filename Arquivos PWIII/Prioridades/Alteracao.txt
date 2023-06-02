@@ -1,0 +1,55 @@
+Rotina de Alteração
+
+
+Rota
+Route::get('/contato/alterar/{idContato}','ContatoController@edit');
+
+
+View de Origem
+
+ <a href="/contato/alterar/{{$c->idContato}}"> 
+            Alterar
+        </a>
+
+Controller
+
+public function edit($idContato)
+    {   
+        $contato = Contato::where('idContato','=',$idContato)->first();        
+        return view('edit.contato-editar',compact('contato'));        
+    }
+
+
+A view de edição
+
+{{$contato->id}}
+
+<form action="" method="post">
+    {{csrf_field()}} 
+    
+    <div>                    
+        <input type="text" 
+                name="txNome"                                 
+                value=  "{{$contato->nome}}" 
+        />
+
+        <input type="text" 
+                name="txEmail"                                 
+                value=  "{{$contato->email}}" 
+        />
+
+        <input type="text" 
+                name="txAssunto"                                 
+                value=  "{{$contato->assunto}}" 
+        />
+
+        <input type="text" 
+                name="txMensagem"                                 
+                value=  "{{$contato->mensagem}}" 
+        />
+    </div>
+                                        
+    <div>
+        <button type="submit"> Salvar </button>
+    </div>                  
+</form>              

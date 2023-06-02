@@ -66,10 +66,12 @@ class PcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($idPc)
+    {   
+        $pc = Pc::where('idPc','=',$idPc)->first();        
+        return view('edit.editar-pc',compact('pc'));        
     }
+
 
     /**
      * Update the specified resource in storage.

@@ -16,8 +16,8 @@
     <form action="/laboratorio" method="post">        
         {{csrf_field()}}        
         <div class="form-group">
-            <label for="txLab">Cadastre um novo laboratório</label>
-            <input type="text" name="txLab" id="txLab" placeholder="Ex: Laboratório (Nº)" />
+            <label for="txLaboratorio">Cadastre um novo laboratório</label>
+            <input type="text" name="txLaboratorio" id="txLaboratorio" placeholder="Ex: Laboratório (Nº)" />
         </div>
         <input type="submit" value="Salvar" />
     </form>
@@ -41,7 +41,7 @@
                     <td class="text-center">{{$l->idLaboratorio}}</td>
                     <td class="text-center">{{$l->Laboratorio}}</td>
                     <td class="text-center"><a href="/laboratorio/excluir/{{$l->idLaboratorio}}"> Excluir </a></td>
-                    <td class="text-center"><a href=""> Editar </a></td>
+                    <td class="text-center"><a href="/laboratorio/editar/{{$l->idLaboratorio}}"> Editar </a></td>
                 </tr>
             @endforeach
             </tbody>

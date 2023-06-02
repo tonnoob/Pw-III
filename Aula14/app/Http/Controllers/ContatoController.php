@@ -69,9 +69,10 @@ class ContatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($idContato)
+    {   
+        $contato = Contato::where('idContato','=',$idContato)->first();        
+        return view('edit.editar-contato',compact('contato'));        
     }
 
     /**
