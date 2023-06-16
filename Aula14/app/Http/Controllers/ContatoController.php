@@ -82,10 +82,19 @@ class ContatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idContato)
     {
-        //
+    $contato = Contato::where('idContato', $idContato)->first();
+    $contato->nome = $request->txNome;
+    $contato->email = $request->txEmail;
+    $contato->assunto = $request->txAssunto;
+    $contato->mensagem = $request->txMensagem;
+
+    $contato->save();
+
+    return redirect('/contato');
     }
+
 
     /**
      * Remove the specified resource from storage.

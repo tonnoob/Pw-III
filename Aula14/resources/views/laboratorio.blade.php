@@ -18,6 +18,7 @@
         <div class="form-group">
             <label for="txLaboratorio">Cadastre um novo laboratório</label>
             <input type="text" name="txLaboratorio" id="txLaboratorio" placeholder="Ex: Laboratório (Nº)" />
+
         </div>
         <input type="submit" value="Salvar" />
     </form>

@@ -68,8 +68,9 @@ class PcController extends Controller
      */
     public function edit($idPc)
     {   
-        $pc = Pc::where('idPc','=',$idPc)->first();        
-        return view('edit.editar-pc',compact('pc'));        
+    $pc = Pc::where('idPc', '=', $idPc)->first();
+    $pcs = Pc::all();
+    return view('edit.editar-pc', compact('pc', 'pcs'));        
     }
 
 
@@ -80,9 +81,14 @@ class PcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idPc)
     {
-        //
+    $pc = Pc::where('idPc', $idPc)->first();
+    $pc -> idPc = $request -> txidPc;
+    $pc -> Pc = $request -> txPc;
+    $pc->save();
+
+    return redirect('/pc');
     }
 
     /**

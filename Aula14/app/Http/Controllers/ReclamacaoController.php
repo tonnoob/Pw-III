@@ -29,6 +29,12 @@ class ReclamacaoController extends Controller
         return $reclamacoes;
     }   
 
+    public function allReclamacoes()
+    {
+        $reclamacoes = Reclamacao::all();
+        return response()->json($reclamacoes);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,11 +54,12 @@ class ReclamacaoController extends Controller
     public function store(Request $request)
     {
         $reclamacao = new Reclamacao();
+        $reclamacao -> idLaboratorio = $request -> idLaboratorio;
         $reclamacao -> idPc = $request -> idPc;
         $reclamacao -> titulo = $request -> txTitulo;
         $reclamacao -> descricao = $request -> txDescricao;
         $reclamacao -> dtCriacao = $request -> txDtCriacao;
-        $reclamacao -> idLaboratorio = $request -> idLaboratorio;
+        
 
         $reclamacao -> save();
 
@@ -76,9 +83,13 @@ class ReclamacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($idRec)
+    {   
+    $reclamacao = Reclamacao::where('idRec', '=', $idRec)->first();
+    $laboratorios = Laboratorio::all(); //precisei colocar as variaveis aqui também
+    $pcs = Pc::all();
+
+    return view('edit.editar-reclamacao', compact('reclamacao', 'laboratorios', 'pcs'));        
     }
 
     /**
@@ -88,9 +99,18 @@ class ReclamacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idRec)
     {
-        //
+    $reclamacao = Reclamacao::where('idRec', $idRec)->first();
+    $reclamacao -> idLaboratorio = $request -> idLaboratorio;
+    $reclamacao -> idPc = $request -> idPc;
+    $reclamacao -> titulo = $request -> txTitulo;
+    $reclamacao -> descricao = $request -> txDescricao;
+    $reclamacao -> dtCriacao = $request -> txDtCriacao;
+    
+    $reclamacao -> save();
+
+    return redirect('/reclamacao');
     }
 
     /**

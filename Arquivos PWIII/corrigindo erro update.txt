@@ -1,0 +1,20 @@
+no model: 
+protected $primaryKey = 'idContato';
+
+no controller: 
+public function update(Request $request, $idContato)
+    {
+    $contato = Contato::where('idContato', $idContato)->first();
+    $contato->nome = $request->txNome;
+    $contato->email = $request->txEmail;
+    $contato->assunto = $request->txAssunto;
+    $contato->mensagem = $request->txMensagem;
+
+    $contato->save();
+
+    return redirect('/contato');
+    }
+
+na view do editar: 
+<form role="form" class="text-start" action="/contato/update/{{$contato->idContato}}" method="post" class="styled-form">
+        {{csrf_field()}}

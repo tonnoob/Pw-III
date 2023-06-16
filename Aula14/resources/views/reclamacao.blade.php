@@ -19,7 +19,7 @@
         </div>
         {{csrf_field()}} 
         <div class="form-group">
-            <label for="idPc">Selecione o Pc:</label>
+            <label for="idPc">Selecione o Computador:</label>
             <select name="idPc" id="idPc">
                 @foreach($pcs as $p)
                     <option value="{{$p->idPc}}"> {{$p->Pc}}  </option>    
@@ -68,7 +68,7 @@
                     <td class="text-center">{{$r->descricao}}</td>
                     <td class="text-center">{{date('d/m/Y',strtotime($r->dtCriacao))}}</td>
                     <td class="text-center"><a href="/reclamacao/excluir/{{$r->idRec}}"> Excluir </a></td>
-                    <td class="text-center"><a href=""> Editar </a></td>
+                    <td class="text-center"><a href="/reclamacao/editar/{{$r->idRec}}"> Editar </a></td>
                 </tr>
             @endforeach
             </tbody>

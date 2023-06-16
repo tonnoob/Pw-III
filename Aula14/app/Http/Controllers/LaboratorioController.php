@@ -81,10 +81,16 @@ class LaboratorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idLaboratorio)
     {
-        //
+    $laboratorio = Laboratorio::where('idLaboratorio', $idLaboratorio)->first();
+    $laboratorio->idLaboratorio = $request->txIdLab;
+    $laboratorio->Laboratorio = $request->txLaboratorio;
+    $laboratorio->save();
+
+    return redirect('/laboratorio');
     }
+
 
     /**
      * Remove the specified resource from storage.
