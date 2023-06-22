@@ -10,15 +10,16 @@
         {{csrf_field()}}
 
         <h1 class="id-text">O id é: {{$laboratorio->idLaboratorio}}</h1>
-
+        
         <div class="form-group">
             <label for="txLaboratorio">Insira o Laboratório:</label>
-            <input type="text" name="txLaboratorio" value="{{$laboratorio->idLaboratorio}}" class="form-control">
+            <input type="hidden" name="txIdLab" value="{{$laboratorio->idLaboratorio}}">
+            <input type="text" name="txLaboratorio" value="{{$laboratorio->Laboratorio}}" class="form-control">
         </div>
 
         <div>
-        <button type="submit" class="btn btn-success">Salvar</button>
-        <a href="/laboratorio" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="/laboratorio" class="btn btn-danger">Cancelar</a>
         </div>
     </form>
 @endsection

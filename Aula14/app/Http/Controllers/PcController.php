@@ -68,10 +68,10 @@ class PcController extends Controller
      */
     public function edit($idPc)
     {   
-    $pc = Pc::where('idPc', '=', $idPc)->first();
-    $pcs = Pc::all();
-    return view('edit.editar-pc', compact('pc', 'pcs'));        
+    $pc = Pc::where('idPc', $idPc)->first();
+    return view('edit.editar-pc', compact('pc'));        
     }
+
 
 
     /**
@@ -83,13 +83,16 @@ class PcController extends Controller
      */
     public function update(Request $request, $idPc)
     {
-    $pc = Pc::where('idPc', $idPc)->first();
-    $pc -> idPc = $request -> txidPc;
-    $pc -> Pc = $request -> txPc;
+    $pc = Pc::find($idPc);
+    $pc->idPc = $request->input('txidPc');
+    $pc->Pc = $request->input('txPc');
     $pc->save();
 
     return redirect('/pc');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

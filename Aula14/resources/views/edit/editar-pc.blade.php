@@ -16,9 +16,11 @@
             <input type="text" name="txPc" value="{{$pc->Pc}}" class="form-control">
         </div>
 
+        <input type="hidden" name="txidPc" value="{{$pc->idPc}}">
+
         <div>
-        <button type="submit" class="btn btn-success">Salvar</button>
-        <a href="/pc" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="/pc" class="btn btn-danger">Cancelar</a>
         </div>
     </form>
 @endsection
